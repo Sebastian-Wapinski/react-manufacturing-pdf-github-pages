@@ -29,7 +29,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "npm"
       - run: npm install
       - run: npm run build
       - run: npm run test
@@ -38,7 +37,7 @@ jobs:
       - name: Deply
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{secrets.TOKEN}}
           BRANCH: gh-pages
           FOLDER: build
           CLEAN: true
